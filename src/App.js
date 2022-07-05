@@ -25,9 +25,7 @@ function App() {
                 setRightAnswer(correctAnswers)
                 // setAnswers([correctAnswers,...incorrectAnswers])
                 setQuestion(result.data.results[0].question);
-
                 const allAnswers = [correctAnswers, ...incorrectAnswers]
-
                 const answerContainer = allAnswers.map((item) => {
                     return {
                         answer: item,
