@@ -17,9 +17,7 @@ function App() {
         setHasClicked(false)
 
         async function openTrivia() {
-
             try {
-
                 const result = await axios.get('https://opentdb.com/api.php?amount=10');
                 const correctAnswers = result.data.results[0].correct_answer
                 const incorrectAnswers = result.data.results[0].incorrect_answers
