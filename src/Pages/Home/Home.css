@@ -1,0 +1,53 @@
+.content {
+    display: flex;
+    justify-content: space-around;
+
+}
+
+.settings {
+    width: 45%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: "Comic Sans MS", sans-serif;
+    font-weight: 300;
+}
+
+form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.start-btn {
+    background-color: red;
+    color: white;
+    font-size: 20px;
+    padding: 10px 60px;
+    border-radius: 5px;
+    margin: 10px 0px;
+    cursor: pointer;
+}
+
+.banner {
+    width: 55%;
+    align-self: center;
+    padding: 8px;
+}
+
+@media (max-width: 800px) {
+    .content {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+    .banner {
+        width: 85%;
+        padding: 0;
+        padding-top: 20px;
+    }
+    .settings{
+        width: 100%;
+    }
+}

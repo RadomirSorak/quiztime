@@ -1,110 +1,54 @@
+import {BrowserRouter, Route, Switch} from "react-router-dom";
+import axios from "axios";
 import "./App.css";
-import React, {useState, useEffect} from 'react';
-import axios from 'axios';
+import Header from "./components/Header/Header"
+import Footer from "./components/Footer/Footer";
+import Home from "./Pages/Home/Home";
+import Quiz from "./Pages/Quiz/Quiz";
+import Result from "./Pages/Result/Result";
+import {useState} from "react";
+
 
 
 function App() {
 
-    // const [data, setData] = useState(null);
-    // const [category, setCategory] = useState(null);
-    const [question, setQuestion] = useState('');
-    const [answers, setAnswers] = useState([]);
-    const [rightAnswer, setRightAnswer] = useState('');
-    const [hasClicked, setHasClicked] = useState(false);
-    const [shouldRender, setShouldRender] = useState(false);
+    const [name, setName] = useState("");
+    const [questions, setQuestions] = useState("");
+    const [score, setScore] = useState(0);
 
-    useEffect(() => {
-        setHasClicked(false)
+    const fetchQuestions = async(category = "", difficulty = "") => {
 
-        async function openTrivia() {
-            try {
-                const result = await axios.get('https://opentdb.com/api.php?amount=10');
-                const correctAnswers = result.data.results[0].correct_answer
-                const incorrectAnswers = result.data.results[0].incorrect_answers
-
-                setRightAnswer(correctAnswers)
-                // setAnswers([correctAnswers,...incorrectAnswers])
-                setQuestion(result.data.results[0].question);
-                const allAnswers = [correctAnswers, ...incorrectAnswers]
-                const answerContainer = allAnswers.map((item) => {
-                    return {
-                        answer: item,
-                        isCorrect: item === correctAnswers
-                    }
-                })
-                setAnswers(answerContainer);
-
-            } catch (e) {
-                console.error(e);
-            }
-        }
-
-        openTrivia();
-    }, [shouldRender])
-
-
-    function getCategory(e) {
-
-        
-        if (e.target.value === "entertainment") {
-
-        }
-        if (e.target.value === "general knowledge") {
-
-        }
-        if (e.target.value === "history") {
-
-        }
-    }
-
-    function onButtonClick(value) {
-        // value === rightAnswer ? console.log(true) : console.log(false)
-
-        setHasClicked(true)
-        setTimeout(() => {
-            setShouldRender(!shouldRender)
-        }, "1500")
-
-    }
+        const {data} = await axios.get(`https://opentdb.com/api.php?amount=10&category=${category}&difficulty=${difficulty}&type=multiple`)
+        setQuestions(data.results);
+    };
 
     return (
-        <div className="App">
-
-            <h1 id="head-title">Quiz Time</h1>
-
-            <select name="" id="category" onChange={getCategory}>
-                <option value="entertainment">Entertainment</option>
-                <option value="general knowledge">General Knowledge</option>
-                <option value="history">History</option>
-            </select>
-
-            <select name="" id="difficulty">
-                <option value="easy">Easy</option>
-                <option value="medium">Medium</option>
-                <option value="hard">Hard</option>
-            </select>
-
-            <p id="questions">{question}</p>
-
-
-            <div id="answer-container">
-                {answers.map((item) => {
-                        return (
-                            <button
-                                id="answ-btn"
-                                className={`
-                                ${(hasClicked && item.isCorrect ? "correct-answer" : "")}
-                                ${(hasClicked && !item.isCorrect ? "incorrect-answer" : "")}`
-                                }
-                                key={item.answer}
-                                onClick={() => onButtonClick(item.answer)}
-                                >{item.answer}</button>)
-                    })
-
-                }
-            </div>
-
+        <BrowserRouter>
+        <div className="App" style={{backgroundImage: "url(./background.jpg)"}}>
+            <Header />
+            <Switch>
+                <Route path="/" exact>
+                <Home name={name}
+                      setName={setName}
+                      fetchQuestions={fetchQuestions}
+                />
+            </Route>
+                <Route path="/quiz" exact>
+                    <Quiz name={name}
+                          questions={questions}
+                          score={score}
+                          setScore={setScore}
+                          setQuestions={setQuestions}
+                    />
+                </Route>
+                <Route path="/result" exact>
+                    <Result name={name}
+                            score={score} />
+                </Route>
+            </Switch>
         </div>
+            <Footer />
+        </BrowserRouter>
     );
 }
 

@@ -1,49 +1,17 @@
-#root {
-    background-color: blue;
-    padding: 0;
+* {
     margin: 0;
-    display: flex;
-    width: 100vw;
-    height: 100vh;
-    justify-content: center;
-    align-items: center;
-}
-.App {
-    width: 800px;
-    max-width: 80%;
-    background-color: white;
-    border-radius: 5px;
-    padding: 10px;
-    box-shadow: 0 0 10px 2px;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-#head-title {
-
+a{
+    text-decoration: inherit;
+    color: inherit;
 }
 
-.correct-answer {
-    background-color: green;
-}
-
-.incorrect-answer {
-    background-color: red;
-}
-
-#answer-container {
-
-    display: grid;
-    grid-template-columns: repeat(2, auto);
-}
-
-#answ-btn {
-    font-family: "Comic Sans MS";
-    background-color: azure;
-    border-radius: 5px;
-    padding: 10px;
-    box-shadow: 0 0 5px 1px;
-    grid-template-columns: repeat(2, auto);
-}
-
-#questions {
-    font-family: "Comic Sans MS";
+.App{
+    min-height: 98.5vh;
+    border: 8px solid #39445a93;
+    margin: 5px;
+    padding: 5px;
 }
