@@ -22,7 +22,6 @@ function App() {
         setQuestions(data.results);
     };
 
-
     return (
         <BrowserRouter>
         <div className="App" style={{backgroundImage: "url(./background.jpg)"}}>
