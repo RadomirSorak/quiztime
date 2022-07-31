@@ -58,7 +58,6 @@ const Home = ({ name, setName, fetchQuestions }) => {
             <img src="/quiz.svg" className="banner" alt="quiz img"/>
         </div>
     )
-
 }
 
 export default Home;
