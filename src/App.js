@@ -1,12 +1,14 @@
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 import axios from "axios";
-import "./App.css";
+import Contact from "./Pages/Contact/Contact"
+import Login from "./Pages/Login/Login";
 import Header from "./components/Header/Header"
 import Footer from "./components/Footer/Footer";
 import Home from "./Pages/Home/Home";
 import Quiz from "./Pages/Quiz/Quiz";
 import Result from "./Pages/Result/Result";
 import {useState} from "react";
+import React from "react";
 
 
 
@@ -15,6 +17,7 @@ function App() {
     const [name, setName] = useState("");
     const [questions, setQuestions] = useState("");
     const [score, setScore] = useState(0);
+    const [passwordValue, setPasswordValue] = React.useState('');
 
     const fetchQuestions = async(category = "", difficulty = "") => {
 
@@ -28,11 +31,20 @@ function App() {
             <Header />
             <Switch>
                 <Route path="/" exact>
-                <Home name={name}
+                    <Contact name={name}
+                    />
+                </Route>
+                <Route path="/login" exact>
+                    <Login name={name}
+                           password={passwordValue}
+                    />
+                </Route>
+                <Route path="/quiz-settings" exact>
+                    <Home name={name}
                       setName={setName}
                       fetchQuestions={fetchQuestions}
-                />
-            </Route>
+                    />
+                </Route>
                 <Route path="/quiz" exact>
                     <Quiz name={name}
                           questions={questions}

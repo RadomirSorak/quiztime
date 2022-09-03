@@ -1,14 +1,42 @@
 import "./Header.css";
-import {Link} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
+import React, { useContext } from 'react';
+import { AuthContext } from '../../context/AuthContext';
 
-const Header = () => {
+
+function Header() {
+
+    const { isAuth, logout } = useContext(AuthContext);
+    const history = useHistory();
+
     return (
-        <div className="header">
-        <Link to="/" className="title">
-            Quiz Time
-        </Link>
-        <hr className="break"/>
-        </div>
+        <header className="header">
+            <Link to="/" className="title">
+                    Quiz Time
+            </Link>
+                <nav className="nav-bar">
+            {isAuth ?
+                <button
+                    type="button"
+                    onClick={logout}
+                >
+                    Log uit
+                </button>
+                :
+                <div>
+                    <button
+                        className="login-btn"
+                        type="button"
+                        onClick={() => history.push('/login')}
+                    >
+                        Log in
+                    </button>
+                </div>
+            }
+                </nav>
+            <hr className="break"/>
+        </header>
+
     );
 }
 

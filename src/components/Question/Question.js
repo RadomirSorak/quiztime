@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import "./Question.css"
-import {useHistory} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 
 const Question = ({
     currQues,
@@ -45,10 +45,6 @@ const Question = ({
         }
     }
 
-    const handleQuit = () => {
-
-    }
-
 
     return (
         <div className="question">
@@ -66,7 +62,9 @@ const Question = ({
                     >{i}</button>))}
                 </div>
                 <div className="controls">
-                    <button className="quit-btn" onClick={handleQuit}>Quit</button>
+                    <Link to="/quiz-settings">
+                    <button className="quit-btn">Quit</button>
+                    </Link>
                     <button className="next-question" onClick={handleNext}>Next Question</button>
                 </div>
             </div>

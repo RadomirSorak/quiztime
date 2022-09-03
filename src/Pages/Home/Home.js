@@ -4,17 +4,21 @@ import {useState } from "react";
 import {useHistory} from "react-router-dom";
 import Categories from "../../Data/Categories";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
+import {useForm} from "react-hook-form";
 
 
 const Home = ({ name, setName, fetchQuestions }) => {
     const [category, setCategory] = useState("");
     const [difficulty, setDifficulty] = useState("");
     const [error, setError] = useState(false);
+    const [mail, setMail] = React.useState('');
+    const [passwordValue, setPasswordValue] = React.useState('');
+    const { formState: { errors }, register } = useForm();
 
     const history = useHistory();
 
     const handleSubmit = () => {
-        if (!category || !difficulty || !name) {
+        if (!name || !category || !difficulty) {
             setError(true);
 
         } else {
@@ -31,7 +35,10 @@ const Home = ({ name, setName, fetchQuestions }) => {
                 <span style={{fontSize: 30}}>Quiz Settings</span>
                 {error && <ErrorMessage>Please Fill all the Fields</ErrorMessage>}
                 <div className="settings-select">
-                    <input type="Name" onChange={(e) => setName(e.target.value)}/>
+                    <p>User Name</p>
+                    <input type="Name"
+                           onChange={(e) => setName(e.target.value)}
+                           placeholder="Username"/>
                     <h2>Select Category:</h2>
                     <select id="category"
                             onChange={(e) => setCategory(e.target.value)}
@@ -48,9 +55,9 @@ const Home = ({ name, setName, fetchQuestions }) => {
                             value={difficulty}
                     >
                         <option>All</option>
-                        <option>easy</option>
-                        <option>medium</option>
-                        <option>hard</option>
+                        <option value='easy'>Easy</option>
+                        <option value='medium'>Medium</option>
+                        <option value='hard'>Hard</option>
                     </select>
                 </div>
                 <button onClick={handleSubmit} className="start-btn">Start Quiz</button>

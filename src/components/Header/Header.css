@@ -12,8 +12,24 @@
     align-items: center;
 }
 
+.nav-bar{
+    justify-content: space-between;
+    margin-left: auto;
+
+}
+
 .break {
     margin: 10px;
     width: 100%;
-    background-color: grey;
+    background-color: red;
+}
+
+.login-btn {
+    background-color: red;
+    color: white;
+    font-size: 20px;
+    padding: 10px 60px;
+    border-radius: 5px;
+    margin: 10px 0px;
+    cursor: pointer;
 }
