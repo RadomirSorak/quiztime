@@ -7,15 +7,19 @@ import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import {useForm} from "react-hook-form";
 
 
+//States aangemaakt om waardes in op te slaan voor de category, difficulty en errors.
+
 const Home = ({ name, setName, fetchQuestions }) => {
     const [category, setCategory] = useState("");
     const [difficulty, setDifficulty] = useState("");
     const [error, setError] = useState(false);
-    const [mail, setMail] = React.useState('');
-    const [passwordValue, setPasswordValue] = React.useState('');
     const { formState: { errors }, register } = useForm();
 
+//History state met useHistory gemaakt om na gecheckte functie door te pushen naar de aangewezen pagina.
+
     const history = useHistory();
+
+//HandleSubmit functie om waardes na te checken voordat je gepusht wordt naar de volgende pagina.
 
     const handleSubmit = () => {
         if (!name || !category || !difficulty) {

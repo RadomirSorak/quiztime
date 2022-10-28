@@ -53,6 +53,7 @@ function AuthContextProvider({ children }) {
 
         console.log('Gebruiker is uitgelogd!');
         history.push('/');
+        history.go(0);
     }
 
     // Omdat we deze functie in login- en het mounting-effect gebruiken, staat hij hier gedeclareerd!

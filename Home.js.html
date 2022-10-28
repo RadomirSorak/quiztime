@@ -1,0 +1,96 @@
+<html>
+<head>
+<title>Home.js</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #6a8759;}
+.s3 { color: #808080;}
+.s4 { color: #e8bf6a;}
+.s5 { color: #bababa;}
+.s6 { color: #6897bb;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Home.js</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s2">&quot;./Home.css&quot;</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">React from </span><span class="s2">&quot;react&quot;</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">{useState } from </span><span class="s2">&quot;react&quot;</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">{useHistory} from </span><span class="s2">&quot;react-router-dom&quot;</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">Categories from </span><span class="s2">&quot;../../Data/Categories&quot;</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">ErrorMessage from </span><span class="s2">&quot;../../components/ErrorMessage/ErrorMessage&quot;</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">{useForm} from </span><span class="s2">&quot;react-hook-form&quot;</span><span class="s0">;</span>
+
+
+<span class="s3">//States aangemaakt om waardes in op te slaan voor de category, difficulty en errors.</span>
+
+<span class="s0">const </span><span class="s1">Home = ({ name</span><span class="s0">, </span><span class="s1">setName</span><span class="s0">, </span><span class="s1">fetchQuestions }) =&gt; {</span>
+    <span class="s0">const </span><span class="s1">[category</span><span class="s0">, </span><span class="s1">setCategory] = useState(</span><span class="s2">&quot;&quot;</span><span class="s1">)</span><span class="s0">;</span>
+    <span class="s0">const </span><span class="s1">[difficulty</span><span class="s0">, </span><span class="s1">setDifficulty] = useState(</span><span class="s2">&quot;&quot;</span><span class="s1">)</span><span class="s0">;</span>
+    <span class="s0">const </span><span class="s1">[error</span><span class="s0">, </span><span class="s1">setError] = useState(</span><span class="s0">false</span><span class="s1">)</span><span class="s0">;</span>
+    <span class="s0">const </span><span class="s1">{ formState: { errors }</span><span class="s0">, </span><span class="s1">register } = useForm()</span><span class="s0">;</span>
+
+<span class="s3">//History state met useHistory gemaakt om na gecheckte functie door te pushen naar de aangewezen pagina.</span>
+
+    <span class="s0">const </span><span class="s1">history = useHistory()</span><span class="s0">;</span>
+
+<span class="s3">//HandleSubmit functie om waardes na te checken voordat je gepusht wordt naar de volgende pagina.</span>
+
+    <span class="s0">const </span><span class="s1">handleSubmit = () =&gt; {</span>
+        <span class="s0">if </span><span class="s1">(!name || !category || !difficulty) {</span>
+            <span class="s1">setError(</span><span class="s0">true</span><span class="s1">)</span><span class="s0">;</span>
+
+        <span class="s1">} </span><span class="s0">else </span><span class="s1">{</span>
+            <span class="s1">setError(</span><span class="s0">false</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s1">fetchQuestions(category</span><span class="s0">, </span><span class="s1">difficulty)</span><span class="s0">;</span>
+            <span class="s1">history.push(</span><span class="s2">&quot;/quiz&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">}</span>
+    <span class="s1">}</span><span class="s0">;</span>
+
+
+    <span class="s0">return </span><span class="s1">(</span>
+        <span class="s4">&lt;div </span><span class="s5">className</span><span class="s2">=&quot;content&quot;</span><span class="s4">&gt;</span>
+            <span class="s4">&lt;div </span><span class="s5">className</span><span class="s2">=&quot;settings&quot;</span><span class="s4">&gt;</span>
+                <span class="s4">&lt;span </span><span class="s5">style</span><span class="s2">=</span><span class="s1">{{fontSize: </span><span class="s6">30</span><span class="s1">}}</span><span class="s4">&gt;</span><span class="s1">Quiz Settings</span><span class="s4">&lt;/span&gt;</span>
+                <span class="s1">{error &amp;&amp; </span><span class="s4">&lt;ErrorMessage&gt;</span><span class="s1">Please Fill all the Fields</span><span class="s4">&lt;/ErrorMessage&gt;</span><span class="s1">}</span>
+                <span class="s4">&lt;div </span><span class="s5">className</span><span class="s2">=&quot;settings-select&quot;</span><span class="s4">&gt;</span>
+                    <span class="s4">&lt;p&gt;</span><span class="s1">User Name</span><span class="s4">&lt;/p&gt;</span>
+                    <span class="s4">&lt;input </span><span class="s5">type</span><span class="s2">=&quot;Name&quot;</span>
+                           <span class="s5">onChange</span><span class="s2">=</span><span class="s1">{(e) =&gt; setName(e.target.value)}</span>
+                           <span class="s5">placeholder</span><span class="s2">=&quot;Username&quot;</span><span class="s4">/&gt;</span>
+                    <span class="s4">&lt;h2&gt;</span><span class="s1">Select Category:</span><span class="s4">&lt;/h2&gt;</span>
+                    <span class="s4">&lt;select </span><span class="s5">id</span><span class="s2">=&quot;category&quot;</span>
+                            <span class="s5">onChange</span><span class="s2">=</span><span class="s1">{(e) =&gt; setCategory(e.target.value)}</span>
+                            <span class="s5">value</span><span class="s2">=</span><span class="s1">{category}</span>
+                    <span class="s4">&gt;</span>
+                        <span class="s4">&lt;option&gt;</span><span class="s1">All</span><span class="s4">&lt;/option&gt;</span>
+                        <span class="s1">{Categories.map((cat) =&gt; (</span>
+                            <span class="s4">&lt;option </span><span class="s5">value</span><span class="s2">=</span><span class="s1">{cat.value} </span><span class="s5">key</span><span class="s2">=</span><span class="s1">{cat.category}</span><span class="s4">&gt;</span><span class="s1">{cat.category}</span><span class="s4">&lt;/option&gt;</span>
+                        <span class="s1">))}</span>
+                    <span class="s4">&lt;/select&gt;</span>
+                    <span class="s4">&lt;h2&gt;</span><span class="s1">Select Difficulty:</span><span class="s4">&lt;/h2&gt;</span>
+                    <span class="s4">&lt;select </span><span class="s5">id</span><span class="s2">=&quot;difficulty&quot;</span>
+                            <span class="s5">onChange</span><span class="s2">=</span><span class="s1">{(e) =&gt; setDifficulty(e.target.value)}</span>
+                            <span class="s5">value</span><span class="s2">=</span><span class="s1">{difficulty}</span>
+                    <span class="s4">&gt;</span>
+                        <span class="s4">&lt;option&gt;</span><span class="s1">All</span><span class="s4">&lt;/option&gt;</span>
+                        <span class="s4">&lt;option </span><span class="s5">value</span><span class="s2">='easy'</span><span class="s4">&gt;</span><span class="s1">Easy</span><span class="s4">&lt;/option&gt;</span>
+                        <span class="s4">&lt;option </span><span class="s5">value</span><span class="s2">='medium'</span><span class="s4">&gt;</span><span class="s1">Medium</span><span class="s4">&lt;/option&gt;</span>
+                        <span class="s4">&lt;option </span><span class="s5">value</span><span class="s2">='hard'</span><span class="s4">&gt;</span><span class="s1">Hard</span><span class="s4">&lt;/option&gt;</span>
+                    <span class="s4">&lt;/select&gt;</span>
+                <span class="s4">&lt;/div&gt;</span>
+                <span class="s4">&lt;button </span><span class="s5">onClick</span><span class="s2">=</span><span class="s1">{handleSubmit} </span><span class="s5">className</span><span class="s2">=&quot;start-btn&quot;</span><span class="s4">&gt;</span><span class="s1">Start Quiz</span><span class="s4">&lt;/button&gt;</span>
+            <span class="s4">&lt;/div&gt;</span>
+            <span class="s4">&lt;img </span><span class="s5">src</span><span class="s2">=&quot;/quiz.svg&quot; </span><span class="s5">className</span><span class="s2">=&quot;banner&quot; </span><span class="s5">alt</span><span class="s2">=&quot;quiz img&quot;</span><span class="s4">/&gt;</span>
+        <span class="s4">&lt;/div&gt;</span>
+    <span class="s1">)</span>
+<span class="s1">}</span>
+
+<span class="s0">export default </span><span class="s1">Home</span><span class="s0">;</span></pre>
+</body>
+</html>

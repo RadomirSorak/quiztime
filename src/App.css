@@ -14,4 +14,6 @@ a{
     border: 8px solid #39445a93;
     margin: 5px;
     padding: 5px;
+    background-size: 100%;
+    display: flex;
 }

@@ -17,10 +17,11 @@ function Header() {
                 <nav className="nav-bar">
             {isAuth ?
                 <button
+                    className="log-out"
                     type="button"
                     onClick={logout}
                 >
-                    Log uit
+                    Log Out
                 </button>
                 :
                 <div>

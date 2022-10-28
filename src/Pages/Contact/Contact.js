@@ -23,7 +23,8 @@ function Contact() {
     const history = useHistory();
 
 
-    //Async function aangemaakt met een try en catch blok om de data van de gebruiker door te sturen naar de backend
+    //Async function aangemaakt met een try en catch blok om de data van de gebruiker door te sturen naar de backend.
+    //HandleSubmitForm functie aangemaakt om functies te checken en door te voeren naar de SubmitButton.
 
     async function handleSubmitForm(e) {
         e.preventDefault();
@@ -44,27 +45,25 @@ function Contact() {
     }
 
 
-
     return (
         <>
-            <h1>Beste Quizer,</h1>
-                    <p>Leuk dat je er bent!
-                    Wil je weten hoe hoog jij kan scoren? Maak dan eerst even een account aan!
-                    Ben je hier al eerder geweest dan kun je uiteraard gewoon weer inloggen met je username en password.
-                    Selecteer de categorie waarover jij wilt Quizen of probeer er meerdere om je kennis te verbreden over de diverse onderwerpen.
-                    Om jezelf te blijven uitdagen kun je kiezen uit verschillende levels van moeilijkheid.
-                    Jouw Final Score geeft aan of je de hoogste score hebt weten te behalen of dat je jezelf kan verbeteren.
-                    Knowledge is power!
+            <h1>Dear Quizer,</h1>
+                    <p>Nice to have you here!
+                        Do you want to know how high you can score?
+                        Then first create an account! If you have been here before,
+                        you can of course log in again with your username and password.
+                        Select the category you want to Quiz about or try several to broaden your knowledge on the various topics.
+                        To keep challenging yourself, you can choose from different levels of difficulty.
+                        Your Final Score indicates whether you have managed to achieve the highest score or whether you can improve yourself.
+                        Knowledge is power!
                         QUIZ TIME…</p>
-            <p>Je kunt ook <Link to="/login">inloggen</Link> of scroll naar beneden om jezelf te registeren als je nog geen
-                account hebt.</p>
+                        <p>You can also <Link to="/login">log in</Link> or scroll down to register if you don't have an account yet.</p>
                 <div className="form-setting">
-                <form onSubmit={handleSubmitForm}>
+                    <form onSubmit={handleSubmitForm}>
                     <fieldset className="fieldset">
                         <legend>Form</legend>
                             <div className="input-group">
-                        <label htmlFor="username">
-                            Username</label>
+                            <label htmlFor="username">Username</label>
                             <input
                                 placeholder="Username"
                                 id="username"
@@ -73,12 +72,10 @@ function Contact() {
                                 value={names}
                                 onChange={(e) => setNames(e.target.value)}
                             />
-                            {errors.name && <ErrorMessage>Please fill in your Name</ErrorMessage>}
+                                {errors.name && <ErrorMessage>Please fill in your Name</ErrorMessage>}
 
-
-                        <label htmlFor="user-email">
-                            E-mail</label>
-                            <input
+                                <label htmlFor="user-email">E-mail</label>
+                                <input
                                 placeholder="E-mail"
                                 id="user-email"
                                 type="email"
@@ -88,8 +85,7 @@ function Contact() {
                             />
                             {errors.mail && <ErrorMessage>Please fill in your Name</ErrorMessage>}
 
-                        <label htmlFor="user-password">
-                            Password</label>
+                            <label htmlFor="user-password">Password</label>
                             <input
                                 placeholder="Password"
                                 id="user-password"

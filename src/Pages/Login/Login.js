@@ -7,7 +7,7 @@ import {useForm} from "react-hook-form";
 import {AuthContext} from "../../context/AuthContext";
 
 
-
+//Log in functie bevat eigenlijk een simpele functie om je ingevoerde waardes op te slaan en door te voeren en na te checken.
 
 function LogIn() {
 
@@ -17,6 +17,8 @@ function LogIn() {
     const { login } = useContext(AuthContext);
 
     const history = useHistory();
+
+//Async function handleSubmit om ingevoerde data door te voeren naar de backend.
 
     async function handleSubmitForm() {
 
@@ -80,7 +82,5 @@ function LogIn() {
             </div>
         </>
     )
-
 }
-
 export default LogIn;
