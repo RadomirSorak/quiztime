@@ -9,6 +9,7 @@ import Quiz from "./Pages/Quiz/Quiz";
 import Result from "./Pages/Result/Result";
 import {useState} from "react";
 import React from "react";
+import DayQuiz from "./Pages/DayQuiz/DayQuiz";
 
 
 
@@ -31,6 +32,10 @@ function App() {
             <Header />
             <Switch>
                 <Route path="/" exact>
+                    <DayQuiz name={name}
+                    />
+                </Route>
+                <Route path="/contact" exact>
                     <Contact name={name}
                     />
                 </Route>
