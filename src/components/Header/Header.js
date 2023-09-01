@@ -8,6 +8,7 @@ function Header() {
 
     const { isAuth, logout } = useContext(AuthContext);
     const history = useHistory();
+    console.log(history);
 
     return (
         <header className="header">
