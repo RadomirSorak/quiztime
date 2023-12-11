@@ -31,7 +31,14 @@ function Header() {
                         type="button"
                         onClick={() => history.push('/login')}
                     >
-                        Log in
+                        Log In
+                    </button>
+                    <button
+                        className="login-btn"
+                        type="button"
+                        onClick={() => history.push('/contact')}
+                    >
+                        Register
                     </button>
                 </div>
             }
