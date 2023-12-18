@@ -42,7 +42,7 @@ const Quiz = () => {
 
     if (questions.length === 0) {
         return <div>Loading...</div>;
-    }
+    }``
 
     return (
         <div className="quiz-container">
