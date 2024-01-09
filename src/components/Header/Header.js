@@ -1,13 +1,13 @@
 /** @format */
 
-import './Header.css'
-import { Link, useHistory } from 'react-router-dom'
-import React, { useContext } from 'react'
-import { AuthContext } from '../../context/AuthContext'
+import "./Header.css";
+import { Link, useHistory } from "react-router-dom";
+import React, { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 
 function Header() {
-  const { isAuth, logout } = useContext(AuthContext)
-  const history = useHistory()
+  const { isAuth, logout } = useContext(AuthContext);
+  const history = useHistory();
 
   return (
     <header className="header">
@@ -24,15 +24,21 @@ function Header() {
             <button
               className="login-btn"
               type="button"
-              onClick={() => history.push('/login')}>
-              Log in
+              onClick={() => history.push("/login")}>
+              Log In
+            </button>
+            <button
+              className="login-btn"
+              type="button"
+              onClick={() => history.push("/contact")}>
+              Register
             </button>
           </div>
         )}
       </nav>
       <hr className="break" />
     </header>
-  )
+  );
 }
 
-export default Header
+export default Header;
