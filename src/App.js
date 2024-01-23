@@ -1,5 +1,5 @@
 /** @format */
-
+import "./App.css";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import axios from "axios";
 import Contact from "./Pages/Contact/Contact";
@@ -28,7 +28,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div className="App" style={{ backgroundImage: "url(./background.jpg)" }}>
+      <div className="App">
         <Header />
         <Switch>
           <Route path="/" exact>

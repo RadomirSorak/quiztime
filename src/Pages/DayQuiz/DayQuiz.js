@@ -4,14 +4,13 @@ import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { AuthContext } from "../../context/AuthContext";
 import { useHistory } from "react-router-dom";
-
+import "./Quiz.css";
 const Quiz = () => {
   const [questions, setQuestions] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedOption, setSelectedOption] = useState("blabla");
   const [showbutton, setShowButton] = useState(false);
   const { isAuth } = useContext(AuthContext);
-  console.log(showbutton);
   const history = useHistory();
 
   useEffect(() => {
@@ -71,7 +70,7 @@ const Quiz = () => {
         </div>
       </div>
       {showbutton && selectedOption === selectedOption ? (
-        <>
+        <div className="result-container">
           {isAuth && selectedOption === selectedOption ? (
             <>
               <p>Try to take another round of the quiz</p>
@@ -80,12 +79,12 @@ const Quiz = () => {
           ) : (
             <>
               <p>
-                To see the answer of this question please Register ore log in{" "}
+                To see the answer of this question please Register or log in{" "}
               </p>
               <button onClick={goToRegister}>Register</button>
             </>
           )}
-        </>
+        </div>
       ) : (
         ""
       )}
@@ -98,12 +97,4 @@ const shuffleOptions = (options) => {
   return options.sort(() => Math.random() - 0.5);
 };
 
-function App() {
-  return (
-    <div className="App">
-      <Quiz />
-    </div>
-  );
-}
-
-export default App;
+export default Quiz;

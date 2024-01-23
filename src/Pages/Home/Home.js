@@ -40,7 +40,7 @@ const Home = ({ name, setName, fetchQuestions, score }) => {
   return (
     <div className="content">
       <div className="settings">
-        <span style={{ fontSize: 30 }}>Quiz Settings</span>
+        <span>Quiz Settings</span>
         {error && <ErrorMessage>Please Fill all the Fields</ErrorMessage>}
         <div className="settings-select">
           <p>User Name</p>

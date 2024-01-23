@@ -1,45 +1,46 @@
+/** @format */
+
 .title {
-    text-transform: uppercase;
-    font-size: 5vw;
-    font-family: "Comic Sans MS", sans-serif;
-    cursor: pointer;
-    color: black;
+  text-transform: uppercase;
+  font-size: 5vw;
+  font-family: "Roboto", sans-serif;
+  cursor: pointer;
+  color: rgb(236, 221, 221);
 }
 
 .header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.nav-bar{
-    justify-content: space-between;
-    margin-left: auto;
-
+.nav-bar {
+  justify-content: space-between;
+  margin-left: auto;
 }
 
 .break {
-    margin: 10px;
-    width: 100%;
-    background-color: red;
+  margin: 10px;
+  width: 100%;
+  background-color: red;
 }
 
 .login-btn {
-    background-color: red;
-    color: white;
-    font-size: 20px;
-    padding: 10px 60px;
-    border-radius: 5px;
-    margin: 10px 0px;
-    cursor: pointer;
+  background-color: red;
+  color: white;
+  font-size: 20px;
+  padding: 10px 60px;
+  border-radius: 5px;
+  margin: 10px 0px;
+  cursor: pointer;
 }
 
 .log-out {
-    background-color: red;
-    color: white;
-    font-size: 20px;
-    padding: 10px 60px;
-    border-radius: 5px;
-    margin: 10px 0px;
-    cursor: pointer;
+  background-color: red;
+  color: white;
+  font-size: 20px;
+  padding: 10px 60px;
+  border-radius: 5px;
+  margin: 10px 0px;
+  cursor: pointer;
 }

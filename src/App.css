@@ -1,19 +1,22 @@
+/** @format */
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-a{
-    text-decoration: inherit;
-    color: inherit;
+a {
+  text-decoration: inherit;
+  color: inherit;
 }
 
-.App{
-    min-height: 98.5vh;
-    border: 8px solid #39445a93;
-    margin: 5px;
-    padding: 5px;
-    background-size: 100%;
-    display: flex;
+body {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: url("../public/background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
 }
