@@ -1,38 +1,44 @@
-# Radomir Sorak "QUIZ TIME"
+<!-- @format -->
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Radomir Quiz = Quizing
 
-I decided to make a fast Quiz app for my school project where you can register and log in and play a 10 question quiz testing your knowledge on your preffered category and difficulty.
+In mijn vrije tijd doe ik net als vele van ons af en toe Instagram of TikTok open om wat entertaining op te zoeken of simpelweg wat tijd te doden met doorscrollen en bekijken van verhaallijnen van mijn vrienden om te zien wat ze bezig houdt.
+Tijdens Instagrammen en Tik-Tokken kwam ik al paar keer een multiple choice vragen verhaallijn tegen (Dus bv een verhaallijn met daarin de vraag vind je dit nummer leuk ja of nee die je kan invullen of eventueel een prullenbak of een vlammetje als antwoord kan invullen), wat ik vaak leuk vind om in te vullen of om erop te reageren, want laten we nou eerlijk zijn mensen in het algemeen vinden het leuk net als ik om ergens een mening over te geven of iets goed te keuren vanuit onze subjectieve kant.  
+Maar wat nou als we hier voor (Applicatie ontwikkelen waarvan de multiple-choice leiden tot offline benodigdheden zoals recept voor een maaltijd van de dag of welke doctor past bij jouw leef en woonomgeving, je informatie hierover kan je dan online oriënteren op basis van YouTube filmpjes webshops en jouw previews en offline kan je dan boodschappen halen of afspraak maken bij de dokter).
 
-This App is made with React framework including HTML, CSS & JavaScript only with all dependencies needed to run the app.
-## How To Install
+[De link naar de Github repository](https://github.com/RadomirSorak/quiztime)
 
-Open up the terminal bellow, and type in :
+## Screenshot
 
-### `npm install`
+![screenshot van de app](src/assets/screenshot.png)
 
-This command will install all data for you so you can run the app without errors.
+## Benodigheden
 
-You might need to install following commands if "npm stall" doesn't install all modules needed to run the app:
+Bij deze applicatie kunnen gebruikers inloggen en registreren, hiervoor moet je de volgende repository downloaden [De link naar de Github repository](https://github.com/hogeschoolnovi/frontend-fake-server)
 
-### `npm install react`
-### `npm install axios`
-### `npm install react-router-dom`
+### Beschrijving
 
-## How to start
+Om gebruik te maken van authenticatie maak je gebruik van de NOVI backend server.
 
-After installment is completed you can type in the terminal next command to open up the project in your browser:
+### Gebruik
 
-### `npm start`
+Hier hoef je niks voor te doen, de endpoints zijn als in de code verwerkt.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## NVM
 
+Dit project maakt gebruik van een .nvmrc-bestand om de versie van Node.js te beheren. Het .nvmrc-bestand specificeert de aanbevolen Node.js-versie voor dit project. Dit zorgt ervoor dat alle samenwerkende projectleden dezelfde Node.js-versie gebruiken, wat compatibiliteitsproblemen kan voorkomen.
 
+## Applicatie draaien
 
+Als je het project gecloned hebt naar jouw locale machine, installeer je eerst de `node_modules` door het volgende
+commando in de terminal te runnen:
 
+```bash
+npm install
+```
 
+Wanneer dit klaar is, kun je de applicatie starten met behulp van:
 
-# quiztime2023
-# quiztime2023
-# quiztime2023
+```bash
+npm start
+```
