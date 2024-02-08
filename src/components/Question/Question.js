@@ -51,17 +51,21 @@ const Question = ({
     <div className="question">
       <h1>Question {currQues + 1}</h1>
       <div className="singleQuestion">
-        <h2>{he.decode(questions[currQues]?.question)}</h2>
+        <h2>
+          {questions[currQues]?.question
+            ? he.decode(questions[currQues].question)
+            : "Loading question..."}
+        </h2>
         <div className="options">
           {error && <ErrorMessage>{error}</ErrorMessage>}
           {options &&
-            options.map((i) => (
+            options.map((i, index) => (
               <button
                 onClick={() => handleCheck(i)}
                 className={`singleOption ${selected && handleSelect(i)}`}
-                key={i}
+                key={index} // Consider using a more unique key if possible
                 disabled={selected}>
-                {he.decode(i)}
+                {i ? he.decode(i) : "Loading option..."}
               </button>
             ))}
         </div>

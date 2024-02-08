@@ -21,6 +21,7 @@ const Quiz = () => {
           "https://opentdb.com/api.php?amount=1&type=multiple"
         );
         setQuestions(response.data.results);
+        console.log(questions);
       } catch (error) {
         console.error("Error fetching question:", error);
       }
@@ -30,7 +31,6 @@ const Quiz = () => {
   }, []); // Empty dependency array ensures the effect runs only once on component mount
 
   const handleOptionSelect = () => {
-    console.log("registreer");
     setShowButton(true);
   };
 
