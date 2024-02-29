@@ -48,7 +48,7 @@ const Quiz = () => {
 
   return (
     <div className="quiz-container">
-      <h1>Quiz App</h1>
+      <h1>Question of the day</h1>
       <div className="question-container">
         <p
           dangerouslySetInnerHTML={{
