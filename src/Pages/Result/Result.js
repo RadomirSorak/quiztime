@@ -23,7 +23,7 @@ const Result = ({
     }, [name, history]);
 
     const handleSaveToFavorites = () => {
-        addFavoriteSetting({ category, difficulty }); // Save current settings as favorites
+        addFavoriteSetting({ category, difficulty }); // Sla de instellingen op als favorieten
         setIsQuizStartedFromSettings(false);
     };
 
