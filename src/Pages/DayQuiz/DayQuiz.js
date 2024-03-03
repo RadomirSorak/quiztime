@@ -28,7 +28,7 @@ const Quiz = () => {
     };
 
     fetchQuestion();
-  }, []); // Empty dependency array ensures the effect runs only once on component mount
+  }, []); // Een lege afhankelijkheidsarray zorgt ervoor dat het effect slechts één keer wordt uitgevoerd bij het monteren van het component.
 
   const handleOptionSelect = () => {
     setShowButton(true);
@@ -92,7 +92,7 @@ const Quiz = () => {
   );
 };
 
-// Helper function to shuffle an array
+// Hulpfunctie om een array door elkaar te schudden.
 const shuffleOptions = (options) => {
   return options.sort(() => Math.random() - 0.5);
 };
