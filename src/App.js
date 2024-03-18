@@ -5,7 +5,6 @@ import axios from "axios";
 import Contact from "./Pages/Contact/Contact";
 import Login from "./Pages/Login/Login";
 import Header from "./components/Header/Header";
-import Footer from "./components/Footer/Footer";
 import Home from "./Pages/Home/Home";
 import Quiz from "./Pages/Quiz/Quiz";
 import Result from "./Pages/Result/Result";
@@ -100,7 +99,6 @@ function App() {
             </Route>
           </Switch>
         </div>
-        {/* <Footer /> */}
       </BrowserRouter>
   );
 }
