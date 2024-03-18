@@ -18,7 +18,7 @@ function App() {
   const [difficulty, setDifficulty] = useState("");
   const [currQues, setCurrQues] = useState(0);
   const [score, setScore] = useState(0);
-  const [passwordValue, setPasswordValue] = React.useState("");
+  const [passwordValue] = React.useState("");
   const [isQuizStartedFromSettings, setIsQuizStartedFromSettings] =
       useState(false);
   const [favoriteSettings, setFavoriteSettings] = useState([]);
