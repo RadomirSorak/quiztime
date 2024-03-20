@@ -33,11 +33,8 @@ function LogIn() {
                 }
             );
             history.push("/quiz-settings");
-            console.log(result.data);
             login(result.data.accessToken);
-            console.log(login);
         } catch (e) {
-            console.log(e.code);
             if (e.code === "ERR_BAD_REQUEST") {
                 setErrorMessage("Username or Password is incorrect");
             }

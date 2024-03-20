@@ -21,7 +21,7 @@ const Quiz = () => {
           "https://opentdb.com/api.php?amount=1&type=multiple"
         );
         setQuestions(response.data.results);
-        console.log(questions);
+
       } catch (error) {
         console.error("Error fetching question:", error);
       }

@@ -43,9 +43,7 @@ function Contact() {
         }
       );
       history.push("/login");
-      console.log(result.data);
     } catch (e) {
-      console.log(e);
     }
   }
 
