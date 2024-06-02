@@ -24,6 +24,24 @@ Om gebruik te maken van authenticatie maak je gebruik van de NOVI backend server
 
 Hier hoef je niks voor te doen, de endpoints zijn als in de code verwerkt.
 
+
+## Node.js en NPM Installatie
+
+Dit project maakt gebruik van Node.js en NPM (Node Package Manager). Volg deze stappen om Node.js en NPM te installeren:
+
+1. **Download Node.js:**
+   - Ga naar de [Node.js downloadpagina](https://nodejs.org/).
+   - Download de LTS (Long Term Support) versie voor jouw besturingssysteem.
+   - Volg de installatie-instructies op de website.
+
+2. **Controleer de installatie:**
+   - Open een terminal of command prompt.
+   - Voer de volgende commando's uit om te controleren of Node.js en NPM correct zijn geïnstalleerd:
+
+   ```bash
+   node -v
+   npm -v
+
 ## NVM
 
 Dit project maakt gebruik van een .nvmrc-bestand om de versie van Node.js te beheren. Het .nvmrc-bestand specificeert de aanbevolen Node.js-versie voor dit project. Dit zorgt ervoor dat alle samenwerkende projectleden dezelfde Node.js-versie gebruiken, wat compatibiliteitsproblemen kan voorkomen.
