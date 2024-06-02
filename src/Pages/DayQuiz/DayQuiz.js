@@ -47,7 +47,7 @@ const Quiz = () => {
   }
 
   return (
-    <div className="quiz-container">
+    <main className="quiz-container">
       <h1>Question of the day</h1>
       <div className="question-container">
         <p
@@ -69,9 +69,9 @@ const Quiz = () => {
           ))}
         </div>
       </div>
-      {showbutton && selectedOption === selectedOption ? (
+      {showbutton ? (
         <div className="result-container">
-          {isAuth && selectedOption === selectedOption ? (
+          {isAuth ? (
             <>
               <p>Try to take another round of the quiz</p>
               <button onClick={goToQuiz}>Go to Quiz</button>
@@ -88,7 +88,7 @@ const Quiz = () => {
       ) : (
         ""
       )}
-    </div>
+    </main>
   );
 };
 

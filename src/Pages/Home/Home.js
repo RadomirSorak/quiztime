@@ -6,7 +6,6 @@ import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import Categories from "../../Data/Categories";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
-import { useForm } from "react-hook-form";
 
 //States aangemaakt om waardes in op te slaan voor de category, difficulty en errors.
 
@@ -24,11 +23,7 @@ const Home = ({
                 setIsQuizStartedFromSettings,
               }) => {
   const [error, setError] = useState(false);
-  const [topScore, setTopScore] = useState(score);
-  const {
-    formState: { errors },
-    register,
-  } = useForm();
+  const [topScore, setTopScore] = useState(score)
 
   const history = useHistory();
 
@@ -63,7 +58,7 @@ const Home = ({
   };
 
   return (
-      <div className="content">
+      <main className="content">
         <div className="settings">
           <span>Quiz Settings</span>
           {error && <ErrorMessage>Please Fill all the Fields</ErrorMessage>}
@@ -113,7 +108,7 @@ const Home = ({
           ))}
         </div>
         <img src="/quiz.svg" className="banner" alt="quiz img" />
-      </div>
+      </main>
   );
 };
 
