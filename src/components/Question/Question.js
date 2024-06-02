@@ -48,7 +48,7 @@ const Question = ({
   };
 
   return (
-    <div className="question">
+    <section className="question">
       <h1>Question {currQues + 1}</h1>
       <div className="singleQuestion">
         <h2>
@@ -78,7 +78,7 @@ const Question = ({
           </button>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

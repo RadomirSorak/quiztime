@@ -5,15 +5,15 @@ import { Link, useHistory } from "react-router-dom";
 import React, { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 
-function Header() {
+function Header({ onTitleClick }) {
   const { isAuth, logout } = useContext(AuthContext);
   const history = useHistory();
 
   return (
     <header className="header">
-      <Link to="/" className="title">
-        Quiz Time
-      </Link>
+      <h1 className="title" onClick={onTitleClick}>
+        <Link to="/">Quiz Time</Link>
+      </h1>
       <nav className="nav-bar">
         {isAuth ? (
           <button className="log-out" type="button" onClick={logout}>
@@ -24,13 +24,15 @@ function Header() {
             <button
               className="login-btn"
               type="button"
-              onClick={() => history.push("/login")}>
+              onClick={() => history.push("/login")}
+            >
               Log In
             </button>
             <button
               className="login-btn"
               type="button"
-              onClick={() => history.push("/contact")}>
+              onClick={() => history.push("/contact")}
+            >
               Register
             </button>
           </div>

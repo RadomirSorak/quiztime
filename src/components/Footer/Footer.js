@@ -1,18 +1,17 @@
-
-const Footer = () => {
+const Footer = ({ footerText }) => {
     return (
-        <div style={{textAlign: "center", marginBottom: 10}}>
-            Made by{" "}
-            <a
-                href="https://github.com/RadomirSorak"
-                style={{ cursor: "pointer"}}
-            >
-                Radomir Sorak
-            </a>
-
-
-        </div>
-    )
+        <footer style={{ textAlign: "center", marginBottom: 10 }}>
+            <p>
+                {footerText}{" "}
+                <a
+                    href="https://github.com/RadomirSorak"
+                    style={{ cursor: "pointer" }}
+                >
+                    Radomir Sorak
+                </a>
+            </p>
+        </footer>
+    );
 }
 
 export default Footer;

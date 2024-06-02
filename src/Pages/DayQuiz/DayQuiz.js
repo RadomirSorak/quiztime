@@ -5,11 +5,12 @@ import axios from "axios";
 import { AuthContext } from "../../context/AuthContext";
 import { useHistory } from "react-router-dom";
 import "./Quiz.css";
+
 const Quiz = () => {
   const [questions, setQuestions] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [selectedOption, setSelectedOption] = useState("blabla");
-  const [showbutton, setShowButton] = useState(false);
+  const [selectedOption, setSelectedOption] = useState("");
+  const [showButton, setShowButton] = useState(false);
   const { isAuth } = useContext(AuthContext);
   const history = useHistory();
 
@@ -21,7 +22,6 @@ const Quiz = () => {
           "https://opentdb.com/api.php?amount=1&type=multiple"
         );
         setQuestions(response.data.results);
-
       } catch (error) {
         console.error("Error fetching question:", error);
       }
@@ -30,7 +30,8 @@ const Quiz = () => {
     fetchQuestion();
   }, []); // Een lege afhankelijkheidsarray zorgt ervoor dat het effect slechts één keer wordt uitgevoerd bij het monteren van het component.
 
-  const handleOptionSelect = () => {
+  const handleOptionSelect = (option) => {
+    setSelectedOption(option);
     setShowButton(true);
   };
 
@@ -63,13 +64,14 @@ const Quiz = () => {
             <button
               key={option}
               className={selectedOption === option ? "selected" : ""}
-              onClick={() => handleOptionSelect()}>
+              onClick={() => handleOptionSelect(option)}
+            >
               {option}
             </button>
           ))}
         </div>
       </div>
-      {showbutton ? (
+      {showButton && (
         <div className="result-container">
           {isAuth ? (
             <>
@@ -85,8 +87,6 @@ const Quiz = () => {
             </>
           )}
         </div>
-      ) : (
-        ""
       )}
     </main>
   );
