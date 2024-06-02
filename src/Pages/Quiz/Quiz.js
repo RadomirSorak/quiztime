@@ -23,7 +23,7 @@ const Quiz = ({ name, score, questions, setScore, currQues, setCurrQues }) => {
 
     return (
         <>
-            <div className="quiz">
+            <main className="quiz">
                 <span className="subtitle">Welcome, {name}</span>
                 <div className="quizInfo">
                     <span>{questions[currQues]?.category}</span>
@@ -38,7 +38,7 @@ const Quiz = ({ name, score, questions, setScore, currQues, setCurrQues }) => {
                     score={score}
                     setScore={setScore}
                 />
-            </div>
+            </main>
         </>
     );
 };

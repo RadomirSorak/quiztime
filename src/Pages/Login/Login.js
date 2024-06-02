@@ -43,7 +43,7 @@ function LogIn() {
 
     return (
         <>
-            <div className="form-setting">
+            <main className="form-setting">
                 <form onSubmit={handleSubmit(handleSubmitForm)}>
                     <fieldset className="fieldset">
                         <legend>Log In</legend>
@@ -83,7 +83,7 @@ function LogIn() {
                         <p>{errorMessage}</p>
                     </fieldset>
                 </form>
-            </div>
+            </main>
         </>
     );
 }

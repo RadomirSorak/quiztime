@@ -28,7 +28,7 @@ const Result = ({
     };
 
     return (
-        <div className="result">
+        <main className="result">
             <span className="title">Final Score : {score}</span>
             <Link to="/quiz-settings">
                 <button className="homepage-btn">Try a again</button>
@@ -40,7 +40,7 @@ const Result = ({
                     </button>
                 </Link>
             )}
-        </div>
+        </main>
     );
 };
 

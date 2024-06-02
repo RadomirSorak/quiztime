@@ -49,7 +49,7 @@ function Contact() {
 
   return (
     <>
-      <div className="form-setting">
+      <main className="form-setting">
         <h1>Dear Quizer,</h1>
         <p>
           Nice to have you here! Do you want to know how high you can score?
@@ -147,7 +147,7 @@ function Contact() {
             </button>
           </fieldset>
         </form>
-      </div>
+      </main>
     </>
   );
 }
